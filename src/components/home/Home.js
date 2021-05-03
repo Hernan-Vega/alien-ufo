@@ -1,5 +1,11 @@
+import { Header } from "./Header/Header";
+
 function Home() {
-  return <div></div>;
+  return (
+    <div>
+      <Header />
+    </div>
+  );
 }
 
 export { Home };
