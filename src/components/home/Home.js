@@ -1,11 +1,7 @@
-import { Header } from "./Header/Header";
+import { SpaceJam } from "./SpaceJam/SpaceJam";
 
 function Home() {
-  return (
-    <div>
-      <Header />
-    </div>
-  );
+  return <SpaceJam />;
 }
 
 export { Home };
