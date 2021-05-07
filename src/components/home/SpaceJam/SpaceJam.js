@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 import { Header } from "./Header/Header";
+import { Tables } from "./Tables/Tables";
+import { Notices } from "./Notices/Notices";
 
 function SpaceJam() {
   const [date, setDate] = useState(new Date());
@@ -18,6 +20,10 @@ function SpaceJam() {
   return (
     <div>
       <Header date={date} />
+      <main style={{ display: "flex" }}>
+        <Tables />
+        <Notices />
+      </main>
     </div>
   );
 }
