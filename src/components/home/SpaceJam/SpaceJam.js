@@ -4,6 +4,7 @@ import { Header } from "./Header/Header";
 import { Tables } from "./Tables/Tables";
 import { Notices } from "./Notices/Notices";
 
+import "./SpaceJam.scss";
 function SpaceJam() {
   const [date, setDate] = useState(new Date());
 
@@ -18,9 +19,9 @@ function SpaceJam() {
   });
 
   return (
-    <div>
+    <div className="space">
       <Header date={date} />
-      <main style={{ display: "flex" }}>
+      <main className="space__main">
         <Tables />
         <Notices />
       </main>

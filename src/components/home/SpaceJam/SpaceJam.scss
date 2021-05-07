@@ -1,0 +1,12 @@
+.space {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: fit-content;
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    width: 75vw;
+    margin-top: 15px;
+  }
+}

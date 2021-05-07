@@ -1,3 +1,5 @@
+import "./Tables.scss";
+
 function Tables() {
   const easternTable = [
     {
@@ -107,41 +109,34 @@ function Tables() {
     },
   ];
 
-  function myTableHeader() {
-    const headers = Object.keys(easternTable[0]);
-    return headers.map((elm) => {
-      return <th key={elm}>{elm.toUpperCase()}</th>;
-    });
-  }
-
-  function myTableContent() {
-    const orderedArr = [...easternTable].sort((a, b) =>
-      a.pow === b.pow ? 0 : a.pow < b.pow ? 1 : -1
-    );
-    return orderedArr.map(({ team, city, wins, losses, pow }) => {
-      return (
-        <tr key={team}>
-          <td>
-            {city} {team}
-          </td>
-          <td>{wins}</td>
-          <td>{losses}</td>
-          <td>{pow}</td>
-        </tr>
-      );
-    });
-  }
+  const orderedArr = [...easternTable].sort((a, b) =>
+    a.pow === b.pow ? 0 : a.pow < b.pow ? 1 : -1
+  );
 
   return (
-    <div>
-      <div>
-        <button type="button">East</button>
+    <div claassName="left">
+      <div className="left__buttons">
+        <button type="button" className="left__buttons__east">
+          East
+        </button>
       </div>
-      <table>
-        <tbody>
-          <tr>{myTableHeader()}</tr>
-          {myTableContent()}
-        </tbody>
+      <table className="left__table">
+        <tr>
+          <th>Team</th>
+          <th>W</th>
+          <th>L</th>
+          <th>% winning</th>
+        </tr>
+        {orderedArr.map(({ team, city, wins, losses, pow }) => (
+          <tr key={team}>
+            <td>
+              {city} {team}
+            </td>
+            <td>{wins}</td>
+            <td>{losses}</td>
+            <td>{pow}</td>
+          </tr>
+        ))}
       </table>
     </div>
   );
