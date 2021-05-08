@@ -7,20 +7,23 @@ import "./Header.scss";
 function Header({ date }) {
   const [searching, setSearching] = useState("");
 
-  function myMinutes() {
-    if (date.getMinutes().length === 1) {
-      return `0${date.getMinutes()}`;
-    } else {
-      return date.getMinutes().toString();
-    }
-  }
+  function time() {
+    let myMinutes = "";
+    let myHours = "";
 
-  function myHours() {
-    if (date.getHours().length === 1) {
-      return `0${date.getHours()}`;
+    if (date.getMinutes() < 10) {
+      myMinutes = `0${date.getMinutes()}`;
     } else {
-      return date.getHours().toString();
+      myMinutes = `${date.getMinutes()}`;
     }
+
+    if (date.getHours() < 10) {
+      myHours = `0${date.getHours()}`;
+    } else {
+      myHours = `${date.getHours()}`;
+    }
+
+    return `${myHours}:${myMinutes}`;
   }
 
   function handleSearchChange(event) {
@@ -42,9 +45,7 @@ function Header({ date }) {
       <div className="header__contener">
         <img src={ufomartial} alt="not charged" />
         <div className="header__clock">
-          <span>
-            {myHours()}:{myMinutes()}
-          </span>
+          <span>{time()}</span>
         </div>
       </div>
       <form onSubmit={handleSubmitSearch} className="header__form">
