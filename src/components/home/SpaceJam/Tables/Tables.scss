@@ -1,6 +1,9 @@
 .left {
+  height: fit-content;
+
   &__buttons {
     border-bottom: 3px solid white;
+
     button {
       border: 0;
       background-color: white;
@@ -12,19 +15,36 @@
       cursor: pointer;
     }
   }
+
   &__table {
-    margin: 5px 0 80px 0;
-    border-collapse: collapse;
-    td,
-    th {
-      padding: 12px 6vw 12px 0.5vw;
-      text-align: left;
+    overflow-y: scroll;
+    height: 55vh;
+    width: fit-content;
+
+    &::-webkit-scrollbar {
+      height: 0;
     }
-    th {
-      color: #e3a752;
-    }
-    td {
-      color: white;
+
+    table {
+      border-collapse: collapse;
+
+      th,
+      td {
+        @media (max-width: 600px) {
+          padding: 0;
+        }
+      }
+
+      th {
+        padding: 2px 6vw 0 0.5vw;
+        color: #e3a752;
+        text-align: left;
+      }
+
+      td {
+        padding: 8px 6vw 8px 0.5vw;
+        color: white;
+      }
     }
   }
 }

@@ -2,11 +2,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: fit-content;
+
   &__main {
     display: flex;
     justify-content: space-between;
     width: 75vw;
     margin-top: 15px;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
   }
 }

@@ -120,24 +120,26 @@ function Tables() {
           East
         </button>
       </div>
-      <table className="left__table">
-        <tr>
-          <th>Team</th>
-          <th>W</th>
-          <th>L</th>
-          <th>% winning</th>
-        </tr>
-        {orderedArr.map(({ team, city, wins, losses, pow }) => (
-          <tr key={team}>
-            <td>
-              {city} {team}
-            </td>
-            <td>{wins}</td>
-            <td>{losses}</td>
-            <td>{pow}</td>
+      <div className="left__table">
+        <table>
+          <tr>
+            <th>Team</th>
+            <th>W</th>
+            <th>L</th>
+            <th>% winning</th>
           </tr>
-        ))}
-      </table>
+          {orderedArr.map(({ team, city, wins, losses, pow }) => (
+            <tr key={team}>
+              <td>
+                {city} {team}
+              </td>
+              <td>{wins}</td>
+              <td>{losses}</td>
+              <td>{pow}</td>
+            </tr>
+          ))}
+        </table>
+      </div>
     </div>
   );
 }
