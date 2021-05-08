@@ -12,15 +12,11 @@
     margin: 10px 0;
     justify-content: space-around;
 
-    @media (max-width: 600px) {
-      flex-direction: column;
-    }
-
     img {
       height: 150px;
 
       @media (max-width: 600px) {
-        height: 95px;
+        height: 80px;
       }
     }
   }
@@ -32,7 +28,7 @@
     cursor: default;
 
     @media (max-width: 600px) {
-      font-size: 53px;
+      font-size: 48px;
     }
   }
 
