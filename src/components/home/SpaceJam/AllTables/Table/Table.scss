@@ -1,0 +1,25 @@
+table {
+  max-height: 55vh;
+  border-collapse: collapse;
+
+  th,
+  td {
+    @media (max-width: 600px) {
+      padding: 0;
+    }
+  }
+
+  th {
+    padding: 2px 2vw 0 0.5vw;
+    color: #e3a752;
+    text-align: left;
+    &#team {
+      width: 200px;
+    }
+  }
+
+  td {
+    padding: 8px 2vw 8px 0.5vw;
+    color: white;
+  }
+}

@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 
 import { Header } from "./Header/Header";
-import { Tables } from "./Tables/Tables";
+import { AllTables } from "./AllTables/AllTables";
 import { Notices } from "./Notices/Notices";
 
 import "./SpaceJam.scss";
+
 function SpaceJam() {
   const [date, setDate] = useState(new Date());
 
@@ -22,7 +23,7 @@ function SpaceJam() {
     <div className="space">
       <Header date={date} />
       <main className="space__main">
-        <Tables />
+        <AllTables />
         <Notices />
       </main>
     </div>
