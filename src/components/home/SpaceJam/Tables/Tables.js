@@ -8,28 +8,24 @@ function Tables() {
   const [premier, setPremier] = useState([]);
 
   useEffect(() => {
-    const options = {
+    const optionsPremier = {
       method: "GET",
-      url:
-        "https://api.football-data.org/v2/competitions/2021/standings?standingType=HOME",
+      url: "https://football98.p.rapidapi.com/premierleague/squads",
       headers: {
-        "User-Agent": "PostmanRuntime/7.28.0",
-        Accept: "*/*",
-        "Accept-Encoding": "gzip, deflate, br",
-        Connection: "keep-alive",
-        "X-Auth-Token": "2d3fb3b10ae64c25875b5c342f75d68b",
+        "x-rapidapi-key": "e8bf33b920msh02d6626f14e79c3p1b6a98jsnc0fae218d427",
+        "x-rapidapi-host": "football98.p.rapidapi.com",
       },
     };
 
-    async function getTable() {
-      const myTable = await axios.request(options);
+    async function getPremierTable() {
+      const myTable = await axios.request(optionsPremier);
       try {
-        setPremier(myTable.standings[0].table);
+        setPremier(myTable.data);
       } catch (error) {
         console.log(error);
       }
     }
-    getTable();
+    getPremierTable();
   }, []);
 
   return (
@@ -42,23 +38,35 @@ function Tables() {
       <div className="left__table">
         <table>
           <tr>
-            <th>Position</th>
+            <th></th>
             <th>Team</th>
             <th>Points</th>
+            <th>MP</th>
             <th>W</th>
             <th>D</th>
             <th>L</th>
           </tr>
-          {premier.map(({ position, team, points, won, draw, lost }) => (
-            <tr key={team.name}>
-              <td>{position}</td>
-              <td>{team.name}</td>
-              <td>{points}</td>
-              <td>{won}</td>
-              <td>{draw}</td>
-              <td>{lost}</td>
-            </tr>
-          ))}
+          {premier.map(
+            ({
+              squad_position,
+              squad_name,
+              squad_points,
+              squad_played,
+              squad_winned,
+              squad_loosed,
+              squad_tie,
+            }) => (
+              <tr key={squad_name}>
+                <td>{squad_position}</td>
+                <td>{squad_name}</td>
+                <td>{squad_points}</td>
+                <td>{squad_played}</td>
+                <td>{squad_winned}</td>
+                <td>{squad_tie}</td>
+                <td>{squad_loosed}</td>
+              </tr>
+            )
+          )}
         </table>
       </div>
     </div>
