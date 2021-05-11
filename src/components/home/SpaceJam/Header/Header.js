@@ -44,9 +44,7 @@ function Header({ date }) {
     <header className="header">
       <div className="header__contener">
         <img src={ufomartial} alt="not charged" />
-        <div className="header__clock">
-          <span>{time()}</span>
-        </div>
+        <span>{time()}</span>
       </div>
       <form onSubmit={handleSubmitSearch} className="header__form">
         <input

@@ -1,25 +1,43 @@
-table {
-  max-height: 55vh;
+.table {
   border-collapse: collapse;
+  width: 50vw;
 
-  th,
-  td {
+  @media (max-width: 600px) {
+    width: 80vw;
+  }
+
+  @media (min-width: 1800px) {
+    width: 1020px;
+  }
+
+  &__header,
+  &__square {
     @media (max-width: 600px) {
       padding: 0;
     }
   }
 
-  th {
-    padding: 2px 2vw 0 0.5vw;
+  &__header {
+    padding: 5px 0;
     color: #e3a752;
-    text-align: left;
+    text-align: center;
+    border: 0;
+
     &#team {
-      width: 200px;
+      text-align: left;
+      padding-left: 5px;
     }
   }
 
-  td {
-    padding: 8px 2vw 8px 0.5vw;
+  &__square {
+    padding: 8px 0;
     color: white;
+    text-align: center;
+    border: 1px solid white;
+
+    &#name {
+      text-align: left;
+      padding-left: 5px;
+    }
   }
 }

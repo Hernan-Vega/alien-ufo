@@ -29,15 +29,17 @@ function Table({ league }) {
   }, [league]);
 
   return (
-    <table>
+    <table className="table">
       <tr>
-        <th></th>
-        <th id="team">Team</th>
-        <th>Points</th>
-        <th>MP</th>
-        <th>W</th>
-        <th>D</th>
-        <th>L</th>
+        <th className="table__header" id="position"></th>
+        <th className="table__header" id="team">
+          Team
+        </th>
+        <th className="table__header">Pts</th>
+        <th className="table__header">MPl</th>
+        <th className="table__header">W</th>
+        <th className="table__header">T</th>
+        <th className="table__header">L</th>
       </tr>
       {standings.map(
         ({
@@ -50,13 +52,15 @@ function Table({ league }) {
           squad_tie,
         }) => (
           <tr key={squad_position}>
-            <td>{squad_position}</td>
-            <td>{squad_name}</td>
-            <td>{squad_points}</td>
-            <td>{squad_played}</td>
-            <td>{squad_winned}</td>
-            <td>{squad_tie}</td>
-            <td>{squad_loosed}</td>
+            <td className="table__square">{squad_position}</td>
+            <td className="table__square" id="name">
+              {squad_name}
+            </td>
+            <td className="table__square">{squad_points}</td>
+            <td className="table__square">{squad_played}</td>
+            <td className="table__square">{squad_winned}</td>
+            <td className="table__square">{squad_tie}</td>
+            <td className="table__square">{squad_loosed}</td>
           </tr>
         )
       )}

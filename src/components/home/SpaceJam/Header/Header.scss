@@ -4,6 +4,15 @@
   align-items: center;
   height: fit-content;
   width: 100vw;
+  color: #fff;
+  font-weight: 400;
+  font-size: 75px;
+  cursor: default;
+
+  @media (max-width: 600px) {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
 
   &__contener {
     width: 75vw;
@@ -11,6 +20,14 @@
     align-items: center;
     margin: 10px 0;
     justify-content: space-around;
+
+    @media (max-width: 600px) {
+      width: 80vw;
+    }
+
+    @media (min-width: 1800px) {
+      width: 1400px;
+    }
 
     img {
       height: 150px;
@@ -21,20 +38,17 @@
     }
   }
 
-  &__clock {
-    color: #fff;
-    font-weight: 400;
-    font-size: 75px;
-    cursor: default;
-
-    @media (max-width: 600px) {
-      font-size: 48px;
-    }
-  }
-
   &__form {
     display: flex;
     width: 75vw;
+
+    @media (max-width: 600px) {
+      width: 80vw;
+    }
+
+    @media (min-width: 1800px) {
+      width: 1020px;
+    }
 
     &__search {
       cursor: pointer;
