@@ -24,21 +24,29 @@ function AllTables() {
       <div className="left__buttons">
         <button
           type="button"
-          className="left__buttons__east"
+          className={
+            league === "premierleague"
+              ? "left__buttons__on"
+              : "left__buttons__off"
+          }
           onClick={() => showPremier()}
         >
           Premier League
         </button>
         <button
           type="button"
-          className="left__buttons__east"
+          className={
+            league === "seriea" ? "left__buttons__on" : "left__buttons__off"
+          }
           onClick={() => showSerieA()}
         >
           Serie A
         </button>
         <button
           type="button"
-          className="left__buttons__east"
+          className={
+            league === "liga" ? "left__buttons__on" : "left__buttons__off"
+          }
           onClick={() => showLaLiga()}
         >
           La Liga

@@ -20,7 +20,8 @@
       width: 1021px;
     }
 
-    button {
+    &__on,
+    &__off {
       border: 0;
       background-color: white;
       width: 150px;
@@ -31,10 +32,22 @@
       cursor: pointer;
       margin-right: 10px;
 
+      &:hover {
+        opacity: 0.75;
+      }
+
       @media (max-width: 600px) {
         width: 100px;
         font-size: 12px;
       }
+    }
+    &__on {
+      background-color: white;
+      color: #1559b3;
+    }
+    &__off {
+      background-color: #1559b3;
+      color: white;
     }
   }
 
