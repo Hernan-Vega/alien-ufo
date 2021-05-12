@@ -55,6 +55,7 @@
     overflow-y: scroll;
     height: 55vh;
     width: 53vw;
+    display: flex;
 
     @media (max-width: 600px) {
       width: 85vw;

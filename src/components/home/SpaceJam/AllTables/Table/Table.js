@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { JumpCircleLoading } from "react-loadingg";
 
 import axios from "axios";
 
@@ -6,6 +7,7 @@ import "./Table.scss";
 
 function Table({ league }) {
   const [standings, setStandings] = useState([]);
+  const [isloading, setIsloading] = useState(false);
 
   useEffect(() => {
     const options = {
@@ -18,53 +20,62 @@ function Table({ league }) {
     };
 
     async function getTable() {
+      setIsloading(true);
       const myTable = await axios.request(options);
       try {
         setStandings(myTable.data);
       } catch (error) {
         console.log(error);
       }
+      setIsloading(false);
     }
+
     getTable();
   }, [league]);
 
   return (
-    <table className="table">
-      <tr>
-        <th className="table__header"></th>
-        <th className="table__header" id="team">
-          Team
-        </th>
-        <th className="table__header">Pts</th>
-        <th className="table__header">MPl</th>
-        <th className="table__header">W</th>
-        <th className="table__header">T</th>
-        <th className="table__header">L</th>
-      </tr>
-      {standings.map(
-        ({
-          squad_position,
-          squad_name,
-          squad_points,
-          squad_played,
-          squad_winned,
-          squad_loosed,
-          squad_tie,
-        }) => (
-          <tr key={squad_position}>
-            <td className="table__square">{squad_position}</td>
-            <td className="table__square" id="name">
-              {squad_name}
-            </td>
-            <td className="table__square">{squad_points}</td>
-            <td className="table__square">{squad_played}</td>
-            <td className="table__square">{squad_winned}</td>
-            <td className="table__square">{squad_tie}</td>
-            <td className="table__square">{squad_loosed}</td>
+    <div>
+      {isloading ? (
+        <JumpCircleLoading speed="0.1" color="white" size="large" />
+      ) : (
+        <table className="table">
+          <tr>
+            <th className="table__header"></th>
+            <th className="table__header" id="team">
+              Team
+            </th>
+            <th className="table__header">Pts</th>
+            <th className="table__header">MPl</th>
+            <th className="table__header">W</th>
+            <th className="table__header">T</th>
+            <th className="table__header">L</th>
           </tr>
-        )
+          {standings.map(
+            ({
+              squad_position,
+              squad_name,
+              squad_points,
+              squad_played,
+              squad_winned,
+              squad_loosed,
+              squad_tie,
+            }) => (
+              <tr key={squad_position}>
+                <td className="table__square">{squad_position}</td>
+                <td className="table__square" id="name">
+                  {squad_name}
+                </td>
+                <td className="table__square">{squad_points}</td>
+                <td className="table__square">{squad_played}</td>
+                <td className="table__square">{squad_winned}</td>
+                <td className="table__square">{squad_tie}</td>
+                <td className="table__square">{squad_loosed}</td>
+              </tr>
+            )
+          )}
+        </table>
       )}
-    </table>
+    </div>
   );
 }
 
