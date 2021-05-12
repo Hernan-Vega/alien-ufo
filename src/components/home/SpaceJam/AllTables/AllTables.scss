@@ -1,6 +1,6 @@
 .left {
   height: fit-content;
-  width: 50vw;
+  width: 53vw;
   overflow: visible;
 
   @media (min-width: 1800px) {
@@ -10,14 +10,14 @@
   &__buttons {
     border-bottom: 3px solid white;
     display: flex;
-    width: 52vw;
+    width: 50.1vw;
 
     @media (max-width: 600px) {
-      width: 80vw;
+      width: 80.2vw;
     }
 
     @media (min-width: 1800px) {
-      width: 1020px;
+      width: 1021px;
     }
 
     button {
@@ -41,14 +41,14 @@
   &__table {
     overflow-y: scroll;
     height: 55vh;
-    width: 52vw;
+    width: 53vw;
 
     @media (max-width: 600px) {
-      width: 83vw;
+      width: 85vw;
     }
 
     @media (min-width: 1800px) {
-      width: 1050px;
+      width: calc(1100px);
     }
 
     &::-webkit-scrollbar {

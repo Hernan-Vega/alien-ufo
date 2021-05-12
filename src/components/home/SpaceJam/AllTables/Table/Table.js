@@ -31,7 +31,7 @@ function Table({ league }) {
   return (
     <table className="table">
       <tr>
-        <th className="table__header" id="position"></th>
+        <th className="table__header"></th>
         <th className="table__header" id="team">
           Team
         </th>
