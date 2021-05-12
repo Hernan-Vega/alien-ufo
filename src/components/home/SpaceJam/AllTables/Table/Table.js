@@ -36,7 +36,7 @@ function Table({ league }) {
   return (
     <div>
       {isloading ? (
-        <JumpCircleLoading speed="0.1" color="white" size="large" />
+        <JumpCircleLoading speed="0.3" color="white" size="large" />
       ) : (
         <table className="table">
           <tr>
