@@ -34,9 +34,14 @@ function Table({ league }) {
   }, [league]);
 
   return (
-    <div>
+    <div className={isloading && "loading"}>
       {isloading ? (
-        <JumpCircleLoading speed="0.3" color="white" size="large" />
+        <JumpCircleLoading
+          speed="0.3"
+          color="white"
+          size="large"
+          style={{ position: "relative" }}
+        />
       ) : (
         <table className="table">
           <tr>
