@@ -14,7 +14,7 @@ function Table({ league }) {
       method: "GET",
       url: `https://football98.p.rapidapi.com/${league}/squads`,
       headers: {
-        "x-rapidapi-key": "e8bf33b920msh02d6626f14e79c3p1b6a98jsnc0fae218d427",
+        "x-rapidapi-key": `${process.env.REACT_APP_RAPIDAPI_API_KEY}`,
         "x-rapidapi-host": "football98.p.rapidapi.com",
       },
     };
@@ -34,7 +34,7 @@ function Table({ league }) {
   }, [league]);
 
   return (
-    <div className={isloading && "loading"}>
+    <div className={isloading ? "loading" : undefined}>
       {isloading ? (
         <JumpCircleLoading
           speed="0.3"
@@ -44,40 +44,44 @@ function Table({ league }) {
         />
       ) : (
         <table className="table">
-          <tr>
-            <th className="table__header"></th>
-            <th className="table__header" id="team">
-              Team
-            </th>
-            <th className="table__header">Pts</th>
-            <th className="table__header">MPl</th>
-            <th className="table__header">W</th>
-            <th className="table__header">T</th>
-            <th className="table__header">L</th>
-          </tr>
-          {standings.map(
-            ({
-              squad_position,
-              squad_name,
-              squad_points,
-              squad_played,
-              squad_winned,
-              squad_loosed,
-              squad_tie,
-            }) => (
-              <tr key={squad_position}>
-                <td className="table__square">{squad_position}</td>
-                <td className="table__square" id="name">
-                  {squad_name}
-                </td>
-                <td className="table__square">{squad_points}</td>
-                <td className="table__square">{squad_played}</td>
-                <td className="table__square">{squad_winned}</td>
-                <td className="table__square">{squad_tie}</td>
-                <td className="table__square">{squad_loosed}</td>
-              </tr>
-            )
-          )}
+          <thead>
+            <tr>
+              <th className="table__header"></th>
+              <th className="table__header" id="team">
+                Team
+              </th>
+              <th className="table__header">Pts</th>
+              <th className="table__header">MPl</th>
+              <th className="table__header">W</th>
+              <th className="table__header">T</th>
+              <th className="table__header">L</th>
+            </tr>
+          </thead>
+          <tbody>
+            {standings.map(
+              ({
+                squad_position,
+                squad_name,
+                squad_points,
+                squad_played,
+                squad_winned,
+                squad_loosed,
+                squad_tie,
+              }) => (
+                <tr key={squad_position}>
+                  <td className="table__square">{squad_position}</td>
+                  <td className="table__square" id="name">
+                    {squad_name}
+                  </td>
+                  <td className="table__square">{squad_points}</td>
+                  <td className="table__square">{squad_played}</td>
+                  <td className="table__square">{squad_winned}</td>
+                  <td className="table__square">{squad_tie}</td>
+                  <td className="table__square">{squad_loosed}</td>
+                </tr>
+              )
+            )}
+          </tbody>
         </table>
       )}
     </div>
