@@ -1,4 +1,4 @@
-function Notices() {
+function News() {
   return (
     <div>
       <span>Hello World!</span>
@@ -9,9 +9,9 @@ function Notices() {
       <br></br>
       <span>Be</span>
       <br></br>
-      <span>Notices</span>
+      <span>News</span>
     </div>
   );
 }
 
-export { Notices };
+export { News };

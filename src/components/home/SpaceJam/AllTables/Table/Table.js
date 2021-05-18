@@ -31,7 +31,17 @@ function Table({ league }) {
     }
 
     getTable();
-  }, [league]);
+  }, [league, standings]);
+
+  const headers = [
+    { header: "", id: "position" },
+    { header: "Team", id: "team" },
+    { header: "Pts", id: "points" },
+    { header: "Pl", id: "played matches" },
+    { header: "W", id: "won" },
+    { header: "T", id: "tied" },
+    { header: "L", id: "loosed" },
+  ];
 
   return (
     <div className={isloading ? "loading" : undefined}>
@@ -46,15 +56,11 @@ function Table({ league }) {
         <table className="table">
           <thead>
             <tr>
-              <th className="table__header"></th>
-              <th className="table__header" id="team">
-                Team
-              </th>
-              <th className="table__header">Pts</th>
-              <th className="table__header">MPl</th>
-              <th className="table__header">W</th>
-              <th className="table__header">T</th>
-              <th className="table__header">L</th>
+              {headers.map(({ header, id }) => (
+                <td className="table__header" id={id} key={id}>
+                  {header}
+                </td>
+              ))}
             </tr>
           </thead>
           <tbody>

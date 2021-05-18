@@ -7,18 +7,6 @@ import "./AllTables.scss";
 function AllTables() {
   const [league, setLeague] = useState("premierleague");
 
-  function showPremier() {
-    setLeague("premierleague");
-  }
-
-  function showSerieA() {
-    setLeague("seriea");
-  }
-
-  function showLaLiga() {
-    setLeague("liga");
-  }
-
   return (
     <div claassName="left">
       <div className="left__buttons">
@@ -29,7 +17,7 @@ function AllTables() {
               ? "left__buttons__on"
               : "left__buttons__off"
           }
-          onClick={() => showPremier()}
+          onClick={() => setLeague("premierleague")}
         >
           Premier League
         </button>
@@ -38,7 +26,7 @@ function AllTables() {
           className={
             league === "seriea" ? "left__buttons__on" : "left__buttons__off"
           }
-          onClick={() => showSerieA()}
+          onClick={() => setLeague("seriea")}
         >
           Serie A
         </button>
@@ -47,7 +35,7 @@ function AllTables() {
           className={
             league === "liga" ? "left__buttons__on" : "left__buttons__off"
           }
-          onClick={() => showLaLiga()}
+          onClick={() => setLeague("liga")}
         >
           La Liga
         </button>

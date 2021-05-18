@@ -1,11 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import searchplanets from "../../../../assets/searchplanets.png";
 import ufomartial from "../../../../assets/ufomartial.svg";
 import "./Header.scss";
 
-function Header({ date }) {
-  const [searching, setSearching] = useState("");
+function Header() {
+  const [search, setSearch] = useState("");
+  const [date, setDate] = useState(new Date());
+
+  useEffect(() => {
+    const timerID = setInterval(function () {
+      setDate(new Date());
+    }, 1000);
+
+    return function cleanClock() {
+      clearInterval(timerID);
+    };
+  });
 
   function time() {
     let myMinutes = "";
@@ -28,16 +39,16 @@ function Header({ date }) {
 
   function handleSearchChange(event) {
     const settedSearch = event.target.value;
-    setSearching(settedSearch);
+    setSearch(settedSearch);
   }
 
   function handleSubmitSearch(event) {
     event.preventDefault();
 
-    if (searching !== "") {
-      window.open(`https://www.google.com/search?q=${searching}`, "_blank");
+    if (search !== "") {
+      window.open(`https://www.google.com/search?q=${search}`, "_blank");
     }
-    setSearching("");
+    setSearch("");
   }
 
   return (
@@ -49,7 +60,7 @@ function Header({ date }) {
       <form onSubmit={handleSubmitSearch} className="header__form">
         <input
           type="text"
-          value={searching}
+          value={search}
           onChange={handleSearchChange}
           placeholder="Search something extraterrestrial"
           className="header__form__search"
