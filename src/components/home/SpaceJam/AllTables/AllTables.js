@@ -8,7 +8,7 @@ function AllTables() {
   const [league, setLeague] = useState("premierleague");
 
   return (
-    <div claassName="left">
+    <div className="left">
       <div className="left__buttons">
         <button
           type="button"

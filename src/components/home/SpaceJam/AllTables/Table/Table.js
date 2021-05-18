@@ -31,7 +31,7 @@ function Table({ league }) {
     }
 
     getTable();
-  }, [league, standings]);
+  }, [league]);
 
   const headers = [
     { header: "", id: "position" },
