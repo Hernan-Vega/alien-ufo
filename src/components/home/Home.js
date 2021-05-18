@@ -1,7 +1,7 @@
-import { SpaceJam } from "./SpaceJam/SpaceJam";
+import { Main } from "./Main/Main";
 
 function Home() {
-  return <SpaceJam />;
+  return <Main />;
 }
 
 export { Home };

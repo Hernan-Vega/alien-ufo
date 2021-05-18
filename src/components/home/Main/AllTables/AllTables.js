@@ -4,7 +4,7 @@ import { Table } from "./Table/Table";
 
 import "./AllTables.scss";
 
-function AllTables() {
+function AllTables({ clickedTeam }) {
   const [league, setLeague] = useState("premierleague");
 
   return (
@@ -41,7 +41,7 @@ function AllTables() {
         </button>
       </div>
       <div className="left__table">
-        <Table league={league} />
+        <Table league={league} clickedTeam={clickedTeam} />
       </div>
     </div>
   );

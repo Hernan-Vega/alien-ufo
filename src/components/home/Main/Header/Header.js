@@ -4,8 +4,7 @@ import searchplanets from "../../../../assets/searchplanets.png";
 import ufomartial from "../../../../assets/ufomartial.svg";
 import "./Header.scss";
 
-function Header() {
-  const [search, setSearch] = useState("");
+function Header({ search, handleSearchChange, handleSubmitSearch }) {
   const [date, setDate] = useState(new Date());
 
   useEffect(() => {
@@ -37,31 +36,17 @@ function Header() {
     return `${myHours}:${myMinutes}`;
   }
 
-  function handleSearchChange(event) {
-    const settedSearch = event.target.value;
-    setSearch(settedSearch);
-  }
-
-  function handleSubmitSearch(event) {
-    event.preventDefault();
-
-    if (search !== "") {
-      window.open(`https://www.google.com/search?q=${search}`, "_blank");
-    }
-    setSearch("");
-  }
-
   return (
     <header className="header">
       <div className="header__contener">
         <img src={ufomartial} alt="not charged" />
         <span>{time()}</span>
       </div>
-      <form onSubmit={handleSubmitSearch} className="header__form">
+      <form onSubmit={() => handleSubmitSearch} className="header__form">
         <input
           type="text"
           value={search}
-          onChange={handleSearchChange}
+          onChange={() => handleSearchChange}
           placeholder="Search something extraterrestrial"
           className="header__form__search"
         />

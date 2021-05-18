@@ -5,7 +5,7 @@ import axios from "axios";
 
 import "./Table.scss";
 
-function Table({ league }) {
+function Table({ league, clickedTeam }) {
   const [standings, setStandings] = useState([]);
   const [isloading, setIsloading] = useState(false);
 
@@ -105,7 +105,11 @@ function Table({ league }) {
               }) => (
                 <tr key={squad_position}>
                   <td className="table__square">{squad_position}</td>
-                  <td className="table__square" id="name">
+                  <td
+                    className="table__square"
+                    id="name"
+                    onClick={() => clickedTeam(squad_name)}
+                  >
                     {squad_name}
                   </td>
                   <td className="table__square">{squad_points}</td>
