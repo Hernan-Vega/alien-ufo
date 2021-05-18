@@ -33,6 +33,35 @@ function Table({ league }) {
     getTable();
   }, [league]);
 
+  let apiFixedNames = standings.reduce((arr, elm) => {
+    switch (elm.squad_name) {
+      case "Verona":
+        elm.squad_name = "Chievo Verona";
+        break;
+      case "AtlÃ©tico Madrid":
+        elm.squad_name = "Atlético Madrid";
+        break;
+      case "Barcellona":
+        elm.squad_name = "Barcelona";
+        break;
+      case "Siviglia":
+        elm.squad_name = "Sevilla";
+        break;
+      case "Celta Vigo":
+        elm.squad_name = "Celta de Vigo";
+        break;
+      case "Cadice":
+        elm.squad_name = "Cádiz";
+        break;
+      case "AlavÃ©s":
+        elm.squad_name = "Alavés";
+        break;
+      default:
+        break;
+    }
+    return [...arr, elm];
+  }, []);
+
   const headers = [
     { header: "", id: "position" },
     { header: "Team", id: "team" },
@@ -64,7 +93,7 @@ function Table({ league }) {
             </tr>
           </thead>
           <tbody>
-            {standings.map(
+            {apiFixedNames.map(
               ({
                 squad_position,
                 squad_name,
