@@ -1,22 +1,8 @@
-import { useState, useEffect } from "react";
-
 import searchplanets from "../../../../assets/searchplanets.png";
 import ufomartial from "../../../../assets/ufomartial.svg";
 import "./Header.scss";
 
-function Header({ search, handleSearchChange, handleSubmitSearch }) {
-  const [date, setDate] = useState(new Date());
-
-  useEffect(() => {
-    const timerID = setInterval(function () {
-      setDate(new Date());
-    }, 1000);
-
-    return function cleanClock() {
-      clearInterval(timerID);
-    };
-  });
-
+function Header({ date, search, handleSearchChange, handleSubmitSearch }) {
   function time() {
     let myMinutes = "";
     let myHours = "";
