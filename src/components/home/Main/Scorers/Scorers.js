@@ -4,9 +4,9 @@ import axios from "axios";
 
 import { PassThrouthLoading } from "react-loadingg";
 
-import "./News.scss";
+import "./Scorers.scss";
 
-function News({ date, league }) {
+function Scorers({ date, league }) {
   const [scorers, setScorers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -50,7 +50,7 @@ function News({ date, league }) {
   }, [league, tourtunamentYear]);
 
   return (
-    <div>
+    <div className={isLoading ? "loading" : undefined}>
       {isLoading ? (
         <PassThrouthLoading
           color="white"
@@ -63,11 +63,13 @@ function News({ date, league }) {
             TOP 5 {scorersHeader(league)} SCORERS:
           </p>
           <div className="scorers__list">
-            {scorers.map(({ player_name, total, team }) => (
-              <div key={player_name}>
-                <p>{player_name}</p>
-                <p>{total} goals</p>
-                <p>{team}</p>
+            {scorers.map(({ player_name, total, team }, index) => (
+              <div className="scorers__list__square" key={player_name}>
+                <p className="scorers__list__square__name">
+                  {index + 1} - {player_name}
+                </p>
+                <p className="scorers__list__square__goals">{total} goals</p>
+                <p className="scorers__list__square__team">{team}</p>
               </div>
             ))}
           </div>
@@ -77,4 +79,4 @@ function News({ date, league }) {
   );
 }
 
-export { News };
+export { Scorers };

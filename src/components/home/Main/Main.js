@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { Header } from "./Header/Header";
 import { AllTables } from "./AllTables/AllTables";
-import { News } from "./News/News";
+import { Scorers } from "./Scorers/Scorers";
 
 import "./Main.scss";
 
@@ -60,7 +60,7 @@ function Main() {
           clickedLeague={clickedLeague}
           league={league.name}
         />
-        <News date={date} league={league.leagueId} />
+        <Scorers date={date} league={league.leagueId} />
       </main>
     </div>
   );
