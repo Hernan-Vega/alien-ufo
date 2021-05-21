@@ -28,11 +28,11 @@ function Header({ date, search, handleSearchChange, handleSubmitSearch }) {
         <img src={ufomartial} alt="not charged" />
         <span>{time()}</span>
       </div>
-      <form onSubmit={() => handleSubmitSearch} className="header__form">
+      <form onSubmit={handleSubmitSearch} className="header__form">
         <input
           type="text"
           value={search}
-          onChange={() => handleSearchChange}
+          onChange={handleSearchChange}
           placeholder="Search something extraterrestrial"
           className="header__form__search"
         />
