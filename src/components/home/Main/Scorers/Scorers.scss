@@ -47,17 +47,29 @@
       &__team {
         margin: 0;
       }
+
       &__name {
         font-size: 16px;
         text-transform: uppercase;
+        cursor: pointer;
       }
+
+      &__name,
+      &__team {
+        &:hover {
+          opacity: 0.75;
+        }
+      }
+
       &__goals,
       &__team {
         font-size: 12px;
         color: #e3a752;
       }
+
       &__team {
         font-style: italic;
+        cursor: pointer;
       }
     }
   }

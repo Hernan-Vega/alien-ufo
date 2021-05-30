@@ -38,8 +38,8 @@ function Main() {
     setSearch("");
   }
 
-  function clickedTeam(team) {
-    setSearch(team);
+  function clickedTeamOrName(ton) {
+    setSearch(ton);
   }
 
   function clickedLeague(clickedLeague, apiId) {
@@ -56,11 +56,15 @@ function Main() {
       />
       <main className="space__main">
         <AllTables
-          clickedTeam={clickedTeam}
+          clickedTeam={clickedTeamOrName}
           clickedLeague={clickedLeague}
           league={league.name}
         />
-        <Scorers date={date} league={league.leagueId} />
+        <Scorers
+          date={date}
+          league={league.leagueId}
+          clickedTeamOrName={clickedTeamOrName}
+        />
       </main>
     </div>
   );

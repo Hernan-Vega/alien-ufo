@@ -6,7 +6,7 @@ import { PassThrouthLoading } from "react-loadingg";
 
 import "./Scorers.scss";
 
-function Scorers({ date, league }) {
+function Scorers({ date, league, clickedTeamOrName }) {
   const [scorers, setScorers] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -65,11 +65,19 @@ function Scorers({ date, league }) {
           <div className="scorers__list">
             {scorers.map(({ player_name, total, team }, index) => (
               <div className="scorers__list__square" key={player_name}>
-                <p className="scorers__list__square__name">
+                <p
+                  className="scorers__list__square__name"
+                  onClick={() => clickedTeamOrName(player_name)}
+                >
                   {index + 1} - {player_name}
                 </p>
                 <p className="scorers__list__square__goals">{total} goals</p>
-                <p className="scorers__list__square__team">{team}</p>
+                <p
+                  className="scorers__list__square__team"
+                  onClick={() => clickedTeamOrName(team)}
+                >
+                  {team}
+                </p>
               </div>
             ))}
           </div>
